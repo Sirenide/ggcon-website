@@ -65,19 +65,13 @@ body {
 
 /* =========================
   3) OPTIONAL KEY VISUAL BACKDROP
-  - Your HTML includes: <div class="bg"></div>
-  - Put your no-text KV at: /assets/ggcon-bg-notext-1080p.png
-  - This stays subtle (modern)
 ========================= */
 .bg {
   position: fixed;
   inset: 0;
   z-index: -2;
   pointer-events: none;
-
-  /* Uncomment if you want the KV faintly behind everything */
-  /* background-image: url("./assets/ggcon-bg-notext-1080p.png"); */
-
+  background-image: url("./assets/ggcon-bg-notext-1080p.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
