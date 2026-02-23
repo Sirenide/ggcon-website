@@ -1,249 +1,203 @@
 /* =========================================================
-  GGCon! — Modern Landing Page CSS (HEX only)
-  - Uses KV no-text PNG as a backdrop
-  - "Retro grid / modern UI" vibe
-  - Responsive, readable, Cloudflare Pages-friendly
+  Good Game Con!
+  CSS ONLY — HEX colors only
+  Notes:
+  - Uses brand HEX values:
+      Base:    #0131ac
+      Accents: #07d9ea, #fed107, #ff3132
 ========================================================= */
 
 /* =========================
-  THEME TOKENS (edit these)
+  1) THEME TOKENS (EDIT HERE)
 ========================= */
 :root {
-  /* Core background + text */
-  --bg: #041b78;         /* main GGCon blue base */
-  --bg-deep: #02114f;    /* deeper blue for fades */
-  --text: #f3f4ff;       /* near-white text */
-  --muted: #c7d2fe;      /* soft blue-white */
+  /* Brand */
+  --base: #0131ac;     /* key color */
+  --cyan: #07d9ea;     /* accent */
+  --yellow: #fed107;   /* accent */
+  --red: #ff3132;      /* accent */
 
-  /* Accent */
-  --accent: #00e5ff;     /* cyan pop */
-  --accent-2: #ffd400;   /* yellow accent (from KV) */
-  --danger: #ff2a2a;     /* red dot accent */
+  /* Neutrals (kept cool/modern) */
+  --ink: #070a14;      /* deep near-black for text contrast on light elements */
+  --bg: #060816;       /* deep background */
+  --bg2: #070a18;      /* slight variance */
+  --text: #f3f5ff;     /* primary text */
+  --muted: #b7c3ff;    /* secondary text */
+  --hairline: #ffffff1a;
 
   /* Surfaces */
-  --glass: #0a2a9a66;    /* translucent card */
-  --glass-strong: #0a2a9aaa;
-  --border: #9aa8ff33;
-
-  /* Buttons */
-  --btn: #00e5ff;
-  --btn-hover: #00c7dd;
-  --btn-text: #001145;
+  --surface: #0b0f2a;      /* cards/sections */
+  --surface2: #0b1030;     /* alt */
+  --glass: #0b1030cc;      /* translucent layer */
+  --border: #ffffff1f;
 
   /* Layout */
-  --radius-xl: 22px;
-  --radius-lg: 18px;
-  --radius-md: 14px;
+  --max: 1180px;
+  --pad: 28px;           /* page side padding */
+  --radius: 18px;
+  --radius2: 22px;
+
+  /* Typography scale */
+  --h1: clamp(44px, 5.5vw, 84px);
+  --h2: clamp(26px, 3vw, 38px);
+  --h3: 16px;
+  --p:  16px;
+
+  /* Shadows */
   --shadow: #00000066;
+
+  /* Focus ring */
+  --focus: #07d9ea99;
 }
 
 /* =========================
-  BASE RESET
+  2) BASE RESET
 ========================= */
 * { box-sizing: border-box; }
+
 html, body { height: 100%; }
+
+html {
+  /* Optional: makes anchor jumps feel modern (not required, but nice) */
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
   color: var(--text);
-  background: radial-gradient(1200px 700px at 30% 10%, #1b45ff22 0%, #00000000 60%),
-              radial-gradient(900px 600px at 80% 20%, #00e5ff1a 0%, #00000000 65%),
-              linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+  background: radial-gradient(1000px 500px at 50% -10%, #0131ac55 0%, #00000000 70%),
+              radial-gradient(900px 520px at 20% 20%, #07d9ea22 0%, #00000000 70%),
+              radial-gradient(900px 520px at 80% 35%, #fed10714 0%, #00000000 70%),
+              linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
   overflow-x: hidden;
 }
 
 /* =========================
-  BACKDROP (KV image + overlays)
-  - Put your no-text KV image at:
-    /assets/ggcon-bg-notext-1080p.png
+  3) OPTIONAL BACKGROUND LAYER
+  - If you want to use your no-text key visual:
+    set background-image URL below.
+  - Keep it subtle so content stays premium and readable.
 ========================= */
-.backdrop {
+.bg {
   position: fixed;
   inset: 0;
   z-index: -2;
-
-  /* KV background image */
-  background-image:
-    /* Overlay gradients for readability */
-    radial-gradient(900px 500px at 50% 0%, #00000033 0%, #00000000 70%),
-    radial-gradient(800px 700px at 20% 70%, #00000044 0%, #00000000 65%),
-    linear-gradient(180deg, #00000055 0%, #00000022 45%, #00000066 100%),
-    url("./assets/ggcon-bg-notext-1080p.png");
+  pointer-events: none;
+  background-image: url("./assets/ggcon-bg-notext-1080p.png");
 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: saturate(1.05) contrast(1.05);
+  opacity: 0.12; /* subtle = modern */
+  filter: saturate(1.1) contrast(1.05);
 }
 
-/* Subtle animated “scan” shine (modern motion, not cheesy) */
-.backdrop::after {
+/* Subtle “scan” sheen for modern motion (no cheesy animation) */
+.bg::after {
   content: "";
   position: absolute;
   inset: -40%;
-  background: linear-gradient(120deg, #00e5ff00 40%, #00e5ff12 50%, #00e5ff00 60%);
-  transform: translateX(-30%) rotate(8deg);
-  animation: sweep 8s linear infinite;
-  pointer-events: none;
+  background: linear-gradient(120deg, #07d9ea00 40%, #07d9ea12 50%, #07d9ea00 60%);
+  transform: translateX(-30%) rotate(10deg);
+  animation: sweep 10s linear infinite;
 }
 
 @keyframes sweep {
-  0%   { transform: translateX(-35%) rotate(8deg); }
-  100% { transform: translateX(35%) rotate(8deg); }
+  0%   { transform: translateX(-35%) rotate(10deg); }
+  100% { transform: translateX(35%) rotate(10deg); }
 }
 
 /* =========================
-  MAIN WRAP
+  4) TOPBAR / HEADER
 ========================= */
-.wrap {
-  width: min(1120px, calc(100% - 40px));
-  margin: 0 auto;
-  padding: 18px 0 48px;
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+
+  /* Modern translucent header, not a chunky nav bar */
+  background: #060816cc;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--hairline);
 }
 
-/* =========================
-  TOPBAR
-========================= */
 .topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
-  padding: 10px 0 18px;
+  gap: 18px;
+  padding: 14px var(--pad);
 }
 
 .brand {
-  text-decoration: none;
   display: inline-flex;
   align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text);
 }
 
 .brand__logo {
-  height: 44px; /* adjust logo size here */
+  height: 34px; /* adjust as needed */
   width: auto;
   display: block;
-  filter: drop-shadow(0 10px 22px #00000055);
+  filter: drop-shadow(0 14px 26px #00000066);
 }
 
-.topbar__actions {
+.brand__text {
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  font-size: 14px;
+  opacity: 0.92;
+}
+
+/* Primary nav links */
+.nav {
   display: flex;
-  gap: 14px;
+  gap: 10px;
   align-items: center;
 }
 
-.link {
-  color: var(--muted);
+.nav__link {
   text-decoration: none;
-  font-weight: 700;
-  font-size: 14px;
-  opacity: 0.95;
-  padding: 8px 10px;
+  color: var(--muted);
+  font-weight: 800;
+  font-size: 13px;
+  padding: 10px 10px;
   border-radius: 999px;
   border: 1px solid #00000000;
 }
 
-.link:hover {
+.nav__link:hover {
   color: var(--text);
-  border-color: var(--border);
-  background: #00000022;
+  border-color: var(--hairline);
+  background: #ffffff0a;
+}
+
+/* Right CTA group */
+.topbar__cta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 /* =========================
-  HERO
+  5) BUTTONS
+  - Clean, modern, bold (no gradients unless subtle)
 ========================= */
-.hero {
-  display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
-  gap: 16px;
-  align-items: stretch;
-}
-
-.hero__left,
-.hero__right {
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  background: var(--glass);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 18px 60px var(--shadow);
-}
-
-.hero__left {
-  padding: 22px;
-}
-
-.hero__right {
-  padding: 18px;
-  display: flex;
-}
-
-.eyebrow {
-  margin: 0 0 10px;
-  color: var(--muted);
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  font-size: 12px;
-  text-transform: uppercase;
-}
-
-.title {
-  margin: 0;
-  font-size: 56px;
-  line-height: 0.9;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
-  text-shadow: 0 18px 60px #00000055;
-}
-
-.dot {
-  color: var(--danger);
-  text-shadow: none;
-}
-
-.meta {
-  margin-top: 14px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.pill {
-  border: 1px solid var(--border);
-  background: #00000022;
-  padding: 10px 12px;
-  border-radius: 999px;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.lead {
-  margin: 14px 0 0;
-  color: var(--text);
-  font-size: 15px;
-  line-height: 1.7;
-  max-width: 58ch;
-}
-
-/* =========================
-  BUTTONS
-========================= */
-.cta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 16px;
-}
-
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  font-weight: 900;
-  font-size: 14px;
+  gap: 10px;
   padding: 12px 14px;
-  border-radius: var(--radius-md);
+  border-radius: 999px;
   border: 1px solid var(--border);
   text-decoration: none;
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.01em;
   transition: transform 120ms ease, background 120ms ease, border-color 120ms ease, opacity 120ms ease;
   user-select: none;
 }
@@ -252,263 +206,424 @@ body {
   transform: translateY(1px);
 }
 
+/* Primary button uses cyan accent for modern “tech” feel */
 .btn--primary {
-  background: var(--btn);
-  color: var(--btn-text);
+  background: var(--cyan);
   border-color: #00000000;
-  box-shadow: 0 18px 40px #00e5ff22;
+  color: #001026;
+  box-shadow: 0 16px 42px #07d9ea22;
 }
 
 .btn--primary:hover {
-  background: var(--btn-hover);
+  background: #06c6d6; /* slightly darker cyan (still HEX) */
 }
 
-/* Disabled state for Coming Soon tickets */
+/* Disabled state for Coming Soon */
 .btn--primary[disabled] {
-  opacity: 0.7;
+  opacity: 0.65;
   cursor: not-allowed;
   box-shadow: none;
 }
 
+/* Ghost button for secondary actions */
 .btn--ghost {
-  background: #00000022;
+  background: #ffffff0a;
   color: var(--text);
 }
 
 .btn--ghost:hover {
   border-color: #ffffff33;
-  background: #00000033;
+  background: #ffffff12;
 }
 
-.note {
-  margin: 12px 0 0;
-  color: var(--muted);
-  font-size: 13px;
-}
-
-.inline-link {
-  color: var(--accent);
-  font-weight: 900;
-  text-decoration: none;
-}
-
-.inline-link:hover {
-  text-decoration: underline;
-}
-
-/* =========================
-  RIGHT “GLASS” CARD
-========================= */
-.glass {
-  width: 100%;
-  border-radius: var(--radius-lg);
-  background: var(--glass-strong);
-  border: 1px solid var(--border);
-  padding: 16px;
-  display: grid;
-  gap: 12px;
-}
-
-.glass__title {
-  margin: 0;
-  font-size: 16px;
-  letter-spacing: -0.01em;
-}
-
-.glass__list {
-  margin: 0;
-  padding-left: 18px;
-  color: var(--muted);
-  line-height: 1.8;
-  font-size: 14px;
-}
-
-.k {
-  color: var(--text);
-  font-weight: 900;
-}
-
-.callout {
-  border: 1px solid #ffffff22;
-  border-radius: var(--radius-md);
-  background: #00000022;
-  padding: 12px;
-  display: grid;
-  gap: 6px;
-}
-
-.callout__badge {
-  display: inline-flex;
-  width: fit-content;
-  padding: 6px 10px;
+/* Accessible focus ring */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
   border-radius: 999px;
-  background: #ffd40022;
-  border: 1px solid #ffd40055;
-  color: #fff2b0;
-  font-weight: 900;
-  font-size: 12px;
-}
-
-.callout__text {
-  margin: 0;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.6;
 }
 
 /* =========================
-  SECTIONS
+  6) MAIN WRAPPER + SECTION SPACING
 ========================= */
-.section {
-  margin-top: 18px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  background: var(--glass);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 18px 60px var(--shadow);
-  padding: 18px;
+.main {
+  /* Clean modern vertical rhythm */
+  padding: 26px 0 40px;
 }
 
+/* Each section gets “its own moment” */
+.section {
+  padding: 64px 0; /* big spacing = modern */
+  border-bottom: 1px solid var(--hairline);
+}
+
+/* Hero gets a bit more presence */
+.section--hero {
+  padding-top: 68px;
+  padding-bottom: 72px;
+}
+
+/* Inner max width container */
+.section__inner {
+  width: min(var(--max), calc(100% - (var(--pad) * 2)));
+  margin: 0 auto;
+}
+
+/* Section headings */
 .section__head {
   display: grid;
-  gap: 6px;
-  margin-bottom: 14px;
+  gap: 10px;
+  margin-bottom: 28px;
 }
 
-.h2 {
+.section__title {
   margin: 0;
-  font-size: 20px;
-  letter-spacing: -0.01em;
+  font-size: var(--h2);
+  letter-spacing: -0.03em;
+  line-height: 1.12;
 }
 
-.sub {
+.section__sub {
   margin: 0;
   color: var(--muted);
-  font-size: 14px;
+  font-size: var(--p);
   line-height: 1.7;
+  max-width: 68ch;
 }
 
 /* =========================
-  ABOUT CARDS
+  7) HERO TYPOGRAPHY + META
 ========================= */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+.eyebrow {
+  margin: 0 0 18px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  font-size: 12px;
+  color: #d6ddff;
+  text-transform: uppercase;
 }
 
-.card {
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  background: #00000022;
-  padding: 14px;
-}
-
-.h3 {
-  margin: 0 0 8px;
-  font-size: 16px;
-}
-
-.card p {
+.hero__title {
   margin: 0;
+  font-size: var(--h1);
+  line-height: 1.02;
+  letter-spacing: -0.05em;
+
+  /* Subtle color bias to key blue */
+  text-shadow: 0 26px 80px #00000088;
+}
+
+.hero__lead {
+  margin: 18px 0 0;
   color: var(--muted);
+  font-size: 18px;
   line-height: 1.7;
-  font-size: 14px;
+  max-width: 72ch;
+}
+
+/* Venue/Date chips */
+.hero__meta {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.meta {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--hairline);
+  background: #ffffff0a;
+}
+
+.meta__label {
+  color: #dfe5ff;
+  font-weight: 900;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.meta__value {
+  color: var(--text);
+  font-weight: 900;
+  font-size: 13px;
+}
+
+/* Hero action buttons */
+.hero__actions {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hero__note {
+  margin: 18px 0 0;
+  color: #d2dbff;
+  font-size: 13px;
+  line-height: 1.7;
+  max-width: 70ch;
 }
 
 /* =========================
-  HIGHLIGHTS GRID
+  8) ABOUT “EDITORIAL” COLUMNS
 ========================= */
-.grid {
+.columns {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-
-.tile {
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  background: #00000022;
-  padding: 14px;
-  display: grid;
-  grid-template-columns: 44px 1fr;
-  gap: 12px;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 22px;
   align-items: start;
 }
 
-.tile__icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  border: 1px solid #ffffff22;
-  background: linear-gradient(180deg, #00e5ff22 0%, #00000022 100%);
-  display: grid;
-  place-items: center;
-  font-size: 18px;
+.bigcopy {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+  color: #e8ecff;
 }
 
-/* CTA strip */
-.cta-strip {
-  margin-top: 14px;
-  border: 1px solid #ffffff22;
-  border-radius: var(--radius-xl);
-  background: linear-gradient(90deg, #00e5ff14 0%, #ffd40014 50%, #ff2a2a14 100%);
-  padding: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+.bigcopy strong {
+  color: var(--text);
 }
 
-.cta-strip__title {
-  margin: 0 0 4px;
+/* Bullet list styled clean */
+.bullets {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.9;
   font-size: 16px;
 }
 
-.cta-strip__text {
-  margin: 0;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.6;
+.bullets strong {
+  color: var(--text);
 }
 
 /* =========================
-  SPONSORS
+  9) FEATURE LIST
+  - Left tags (pill labels)
+  - Right copy with arrow
 ========================= */
-.sponsor-row {
+.featurelist {
+  display: grid;
+  gap: 14px;
+}
+
+/* Each row */
+.feature {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 18px 0;
+  border-top: 1px solid var(--hairline);
+}
+
+.feature:last-child {
+  border-bottom: 1px solid var(--hairline);
+}
+
+/* Left label */
+.feature__label {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Tag pill (white-ish like GameNations, but tuned to your palette) */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+
+  background: #f5f7ff;
+  color: #061029;
+  border: 1px solid #00000000;
+
+  /* tiny accent line feels modern */
+  box-shadow: 0 16px 40px #00000022;
+}
+
+/* Right body */
+.feature__body {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.feature__text {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 85ch;
+}
+
+.feature__arrow {
+  color: #dbe3ff;
+  font-weight: 900;
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+/* =========================
+  10) HIGHLIGHTS TILES
+  - Not “boxed cards”; more modern and subtle
+========================= */
+.tiles {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
 }
 
-.sponsor {
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  background: #00000022;
-  padding: 14px;
-  min-height: 76px;
+.tile {
+  border: 1px solid var(--hairline);
+  background: #ffffff08;
+  border-radius: var(--radius);
+  padding: 16px;
+  min-height: 120px;
+  transition: transform 140ms ease, background 140ms ease, border-color 140ms ease;
+}
+
+.tile:hover {
+  transform: translateY(-2px);
+  background: #ffffff10;
+  border-color: #ffffff2b;
+}
+
+.tile__title {
+  margin: 0 0 8px;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+}
+
+.tile__text {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+/* Ticket status banner (big modern strip) */
+.banner {
+  margin-top: 18px;
+  border-radius: var(--radius2);
+  border: 1px solid #ffffff22;
+  background: linear-gradient(90deg, #07d9ea14 0%, #fed10712 50%, #ff313214 100%);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.banner__title {
+  margin: 0 0 4px;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+}
+
+.banner__text {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* =========================
+  11) PARTNER LOGOS
+========================= */
+.logos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.logo {
+  border: 1px solid var(--hairline);
+  background: #ffffff08;
+  border-radius: var(--radius);
+  padding: 16px;
+  min-height: 86px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.sponsor img {
+.logo img {
   max-width: 100%;
   max-height: 34px;
   width: auto;
   height: auto;
   display: block;
-  filter: drop-shadow(0 10px 18px #00000033);
+  filter: drop-shadow(0 16px 30px #00000033);
 }
 
-.sponsor--placeholder {
+.logo--placeholder {
   color: var(--muted);
   font-weight: 900;
   font-size: 13px;
 }
 
 /* =========================
-  CONTACT
+  12) SOCIALS GRID
+========================= */
+.socialgrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.social {
+  border: 1px solid var(--hairline);
+  background: #ffffff08;
+  border-radius: var(--radius2);
+  padding: 18px;
+  text-decoration: none;
+  color: var(--text);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: center;
+  transition: transform 140ms ease, background 140ms ease, border-color 140ms ease;
+}
+
+.social:hover {
+  transform: translateY(-2px);
+  background: #ffffff10;
+  border-color: #ffffff2b;
+}
+
+.social__name {
+  font-weight: 900;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+}
+
+.social__handle {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.social__arrow {
+  color: #dbe3ff;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+/* =========================
+  13) CONTACT ROW
 ========================= */
 .contact {
   display: flex;
@@ -517,68 +632,77 @@ body {
 }
 
 /* =========================
-  FOOTER
+  14) FOOTER
 ========================= */
 .footer {
-  margin-top: 18px;
-  text-align: center;
-  color: var(--muted);
+  padding: 26px var(--pad);
+  color: #c9d3ff;
   font-size: 13px;
+  border-top: 1px solid var(--hairline);
+  background: #060816cc;
+  backdrop-filter: blur(10px);
+  text-align: center;
 }
 
 /* =========================
-  RESPONSIVE
+  15) RESPONSIVE BREAKPOINTS
 ========================= */
 @media (max-width: 980px) {
-  .hero {
+  .topbar {
+    padding: 14px 18px;
+  }
+
+  .nav {
+    display: none; /* modern mobile simplification (we can add hamburger later) */
+  }
+
+  .section {
+    padding: 54px 0;
+  }
+
+  .columns {
     grid-template-columns: 1fr;
   }
 
-  .title {
-    font-size: 52px;
-  }
-
-  .cards {
+  .feature {
     grid-template-columns: 1fr;
+    gap: 10px;
   }
 
-  .grid {
-    grid-template-columns: 1fr;
+  .feature__body {
+    grid-template-columns: 1fr auto;
   }
 
-  .sponsor-row {
+  .tiles {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .cta-strip {
+  .logos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .socialgrid {
+    grid-template-columns: 1fr;
+  }
+
+  .banner {
     flex-direction: column;
     align-items: stretch;
   }
 }
 
 @media (max-width: 520px) {
-  .wrap {
-    width: min(1120px, calc(100% - 28px));
+  :root { --pad: 18px; }
+
+  .brand__text {
+    display: none; /* keep header clean on small screens */
   }
 
-  .brand__logo {
-    height: 38px;
+  .hero__lead {
+    font-size: 16px;
   }
 
-  .topbar__actions {
-    gap: 8px;
-  }
-
-  .link {
-    font-size: 13px;
-    padding: 7px 9px;
-  }
-
-  .title {
-    font-size: 44px;
-  }
-
-  .sponsor-row {
+  .tiles {
     grid-template-columns: 1fr;
   }
 }

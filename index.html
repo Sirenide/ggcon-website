@@ -2,284 +2,402 @@
 <html lang="en">
 <head>
   <!-- ======================================================
-    GGCon! One-page Landing (Modern, KV-based)
-    - Static HTML for Cloudflare Pages
-    - Separate CSS (styles.css)
-    - Tickets button is "Coming Soon"
+    Good Game Con! — Modern One-Page Landing (HTML only)
+    Notes:
+    - CSS will be in a separate file (styles.css) later
+    - No scroll snapping requested (pure normal scrolling)
+    - Sections are separated like a modern site (layout handled in CSS later)
+    - Tickets are "Coming Soon"
+    - No Battlepass mention (use "More coming soon" instead)
+    - Redirect attention to social links, not “watch the website”
   ======================================================= -->
 
   <!-- ===== Meta / Basics ===== -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Good Game Con! — Portable Audio × Video Games × Anime Culture</title>
-  <meta name="description" content="Good Game Con! — Portable Audio × Video Games × Anime Culture. Tickets coming soon." />
+  <meta name="description" content="Good Game Con! unites portable audio, video games, and anime culture under one roof. Tickets coming soon." />
 
   <!-- ===== Social Preview (Optional) ===== -->
-  <!-- Replace domain + og image when ready -->
   <meta property="og:title" content="Good Game Con!" />
   <meta property="og:description" content="Portable Audio × Video Games × Anime Culture. Tickets coming soon." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ggconph.com/" />
-  <!-- Put an OG image in /assets if you want -->
-  <!-- <meta property="og:image" content="https://ggconph.com/assets/og-image.png" /> -->
 
-  <!-- ===== CSS ===== -->
+  <!-- ===== CSS (to be created after HTML approval) ===== -->
   <link rel="stylesheet" href="./styles.css" />
 
-  <!-- ===== Favicon (Optional) ===== -->
+  <!-- Optional favicon -->
   <!-- <link rel="icon" href="./assets/favicon.png" /> -->
 </head>
 
 <body>
   <!-- ======================================================
-    BACKDROP
-    - Uses your "no-text" 1080p PNG as hero background
-    - Add subtle overlays and motion via CSS (no JS frameworks)
+    BACKGROUND LAYER (optional)
+    - If you want to use your no-text key visual as a subtle background,
+      we’ll do it in CSS later.
   ======================================================= -->
-  <div class="backdrop" aria-hidden="true"></div>
+  <div class="bg" aria-hidden="true"></div>
 
   <!-- ======================================================
-    MAIN WRAPPER
+    SITE HEADER / NAV
+    - Modern minimal topbar
+    - “Tickets: Coming Soon” is visible immediately
   ======================================================= -->
-  <main class="wrap">
-    <!-- =========================
-      TOP NAV (minimal)
-    ========================== -->
-    <header class="topbar">
-      <!-- Logo -->
-      <a class="brand" href="#" aria-label="Good Game Con! Home">
-        <!-- Replace with your real logo file -->
-        <img class="brand__logo" src="./assets/ggcon-logo.png" alt="Good Game Con! logo" />
+  <header class="topbar" role="banner">
+    <!-- Brand / Logo -->
+    <a class="brand" href="#top" aria-label="Good Game Con Home">
+      <!-- Replace with your logo path -->
+      <img class="brand__logo" src="./assets/good-game-con-logo.png" alt="Good Game Con logo" />
+      <!-- If you prefer text-only brand, we can hide the image and show text in CSS later -->
+      <span class="brand__text">Good Game Con!</span>
+    </a>
+
+    <!-- Navigation (anchors to sections) -->
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="nav__link" href="#about">About</a>
+      <a class="nav__link" href="#experience">Experience</a>
+      <a class="nav__link" href="#highlights">Highlights</a>
+      <a class="nav__link" href="#partners">Partners</a>
+      <a class="nav__link" href="#contact">Contact</a>
+    </nav>
+
+    <!-- Right-side CTA group -->
+    <div class="topbar__cta">
+      <!-- Tickets are coming soon: disabled button for now -->
+      <button class="btn btn--primary" type="button" disabled aria-disabled="true" title="Tickets are coming soon">
+        Tickets: Coming Soon
+      </button>
+
+      <!-- Social shortcut (we’ll style this like a minimal icon/button later) -->
+      <a class="btn btn--ghost" href="#socials">
+        Follow Updates
       </a>
+    </div>
+  </header>
 
-      <!-- Right actions -->
-      <nav class="topbar__actions" aria-label="Primary">
-        <!-- Use section anchors for a one-page site -->
-        <a class="link" href="#highlights">Highlights</a>
-        <a class="link" href="#sponsors">Sponsors</a>
-        <a class="link" href="#contact">Contact</a>
-      </nav>
-    </header>
+  <!-- ======================================================
+    MAIN CONTENT
+  ======================================================= -->
+  <main id="top" class="main" role="main">
 
     <!-- =========================
-      HERO
+      HERO SECTION
+      - Big, modern headline
+      - Clear subline
+      - Venue/date placeholders
+      - CTAs push to socials (site not officially launched)
     ========================== -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero__left">
-        <!-- Eyebrow / tag line -->
+    <section class="section section--hero" aria-labelledby="hero-title">
+      <div class="section__inner">
         <p class="eyebrow">PORTABLE AUDIO × VIDEO GAMES × ANIME CULTURE</p>
 
-        <!-- Big headline (kept text-only so it scales cleanly) -->
-        <h1 id="hero-title" class="title">
-          GOOD<br />
-          GAME<br />
-          CON<span class="dot">!</span>
+        <h1 id="hero-title" class="hero__title">
+          Good Game Con!
         </h1>
 
-        <!-- Venue + Date (edit this) -->
-        <div class="meta">
-          <!-- IMPORTANT: edit these 2 lines -->
-          <div class="pill">📍 <strong>Venue:</strong> <span>SEQUOIA HOTEL, QC</span></div>
-          <div class="pill">🗓️ <strong>Date:</strong> <span>APRIL 18, 2026</span></div>
-        </div>
-
-        <!-- Short supporting copy -->
-        <p class="lead">
-          A hands-on, showroom-style expo where you can try gear, discover brands,
-          meet creators, and vibe with the communities that actually use the stuff.
+        <p class="hero__lead">
+          A hands-on, showroom-style con where you can try gear, meet the community, and discover brands in person.
         </p>
 
-        <!-- CTA row -->
-        <div class="cta">
-          <!-- Tickets: Coming Soon (disabled style) -->
-          <button class="btn btn--primary" type="button" disabled aria-disabled="true" title="Tickets coming soon">
+        <!-- Venue + Date (edit later) -->
+        <div class="hero__meta" aria-label="Event details">
+          <div class="meta">
+            <span class="meta__label">Venue</span>
+            <span class="meta__value">TBA</span>
+          </div>
+          <div class="meta">
+            <span class="meta__label">Date</span>
+            <span class="meta__value">TBA</span>
+          </div>
+        </div>
+
+        <!-- Hero CTA row -->
+        <div class="hero__actions">
+          <!-- Tickets: Coming Soon (keep disabled) -->
+          <button class="btn btn--primary" type="button" disabled aria-disabled="true">
             Tickets: Coming Soon
           </button>
 
-          <!-- Optional: replace this with your ticket page when live -->
-          <!-- <a class="btn btn--primary" href="https://YOUR-TICKET-LINK.com" target="_blank" rel="noopener">Get Tickets</a> -->
+          <!-- Push them to socials instead of “track the website” -->
+          <a class="btn btn--ghost" href="#socials">
+            Follow for announcements
+          </a>
 
-          <!-- Secondary button: scroll down -->
-          <a class="btn btn--ghost" href="#details">See Details</a>
+          <!-- Optional: Email inquiry -->
+          <a class="btn btn--ghost" href="mailto:ggconph@gmail.com?subject=Good%20Game%20Con%20Inquiry">
+            Email us
+          </a>
         </div>
 
-        <!-- Optional notify line (no backend needed, uses mailto) -->
-        <p class="note">
-          Want a ping when tickets drop?
-          <a class="inline-link" href="mailto:ggconph@gmail.com?subject=GGCon%20Ticket%20Update%20Request&body=Hi%20GGCon!%20Please%20notify%20me%20when%20tickets%20are%20live.">
-            Email us</a>.
+        <!-- Small note (no spoilers) -->
+        <p class="hero__note">
+          Website is under construction. We’ll post ticket and lineup announcements on our socials first.
         </p>
       </div>
-
-      <!-- Right panel: quick facts card -->
-      <aside class="hero__right" aria-label="Event info">
-        <div class="glass">
-          <h2 class="glass__title">Event Quick View</h2>
-
-          <!-- Edit these bullets freely -->
-          <ul class="glass__list">
-            <li><span class="k">Experience:</span> Showroom-style testing</li>
-            <li><span class="k">Communities:</span> Audio • Gaming • Anime</li>
-            <li><span class="k">Activities:</span> Meet & Greet • Raffle • Stage moments</li>
-            <li><span class="k">Tickets:</span> Coming soon</li>
-          </ul>
-
-          <!-- Small callout -->
-          <div class="callout">
-            <span class="callout__badge">Tip</span>
-            <p class="callout__text">Bookmark this page — we’ll update it as reveals go live.</p>
-          </div>
-        </div>
-      </aside>
     </section>
 
     <!-- =========================
-      DETAILS
+      ABOUT SECTION
+      - Modern “editorial” copy block
     ========================== -->
-    <section class="section" id="details" aria-label="About GGCon">
-      <div class="section__head">
-        <h2 class="h2">Good Game Con! But what's that?</h2>
-        <p class="sub">
-          A focused convention built around actually trying products, meeting people, and discovering what fits your setup.
-        </p>
-      </div>
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="section__inner">
+        <header class="section__head">
+          <h2 id="about-title" class="section__title">What is Good Game Con!?</h2>
+          <p class="section__sub">
+            A focused event built around real product discovery and real community energy — not just looking at stuff behind glass.
+          </p>
+        </header>
 
-      <div class="cards">
-        <!-- Card 1 -->
-        <article class="card">
-          <h3 class="h3">Portable Audio</h3>
-          <p>Listen, compare, ask questions, and explore IEMs, DAC/amps, and accessories in a comfortable space.</p>
-        </article>
-
-        <!-- Card 2 -->
-        <article class="card">
-          <h3 class="h3">Gaming</h3>
-          <p>Hands-on peripherals, setups, and gear you can test. No guessing from photos, no buyer’s regret.</p>
-        </article>
-
-        <!-- Card 3 -->
-        <article class="card">
-          <h3 class="h3">Anime Culture</h3>
-          <p>Creators, and community moments, and collab-friendly energy that keeps the vibe fun and welcoming.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- =========================
-      HIGHLIGHTS
-    ========================== -->
-    <section class="section" id="highlights" aria-label="Event highlights">
-      <div class="section__head">
-        <h2 class="h2">Highlights</h2>
-        <p class="sub">Built to drive foot traffic without turning the whole venue into nonstop noise.</p>
-      </div>
-
-      <div class="grid">
-        <!-- Item 1 -->
-        <div class="tile">
-          <div class="tile__icon" aria-hidden="true">🤝</div>
-          <div>
-            <h3 class="h3">Meet & Greet</h3>
-            <p>Creator/community moments designed as a main traffic anchor.</p>
+        <div class="columns">
+          <!-- Left column: short statement -->
+          <div class="col">
+            <p class="bigcopy">
+              We’re bringing <strong>portable audio</strong>, <strong>gaming peripherals</strong>, and <strong>anime culture</strong>
+              into one space — designed for trying, comparing, and connecting.
+            </p>
           </div>
-        </div>
 
-        <!-- Item 2 -->
-        <div class="tile">
-          <div class="tile__icon" aria-hidden="true">🎟️</div>
-          <div>
-            <h3 class="h3">Raffle + Giveaways</h3>
-            <p>Timed drops and a grand prize moment to keep energy up.</p>
+          <!-- Right column: key points -->
+          <div class="col">
+            <ul class="bullets" aria-label="Core pillars">
+              <li><strong>Hands-on first:</strong> Try products properly before you buy.</li>
+              <li><strong>Community-built:</strong> Meet creators, hobbyists, and new friends.</li>
+              <li><strong>Brand-friendly:</strong> A showroom approach that helps people discover fit and value.</li>
+            </ul>
           </div>
-        </div>
-
-        <!-- Item 3 -->
-        <div class="tile">
-          <div class="tile__icon" aria-hidden="true">🧭</div>
-          <div>
-            <h3 class="h3">MORE SOON!</h3>
-            <p>We'd put more things here, but we don't want to spoil you yet.</p>
-          </div>
-        </div>
-
-        <!-- Item 4 -->
-        <div class="tile">
-          <div class="tile__icon" aria-hidden="true">🎧</div>
-          <div>
-            <h3 class="h3">Showroom Experience</h3>
-            <p>Try gear properly! Not just a quick glance across a table.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Big CTA strip -->
-      <div class="cta-strip" role="region" aria-label="Tickets status">
-        <div>
-          <h3 class="cta-strip__title">Tickets are not live yet.</h3>
-          <p class="cta-strip__text">We’ll switch the button the moment sales open. Keep this page bookmarked!</p>
-        </div>
-        <button class="btn btn--primary" type="button" disabled aria-disabled="true">
-          Tickets: Coming Soon
-        </button>
-      </div>
-    </section>
-
-    <!-- =========================
-      SPONSORS
-    ========================== -->
-    <section class="section" id="sponsors" aria-label="Sponsors and partners">
-      <div class="section__head">
-        <h2 class="h2">Sponsors & Partners</h2>
-        <p class="sub">Some logos may appear as placeholders until official reveal timing.</p>
-      </div>
-
-      <div class="sponsor-row" role="list">
-        <!-- Replace with your real sponsor logos -->
-        <div class="sponsor" role="listitem"><img src="./assets/sponsor-1.png" alt="Sponsor 1" loading="lazy" /></div>
-        <div class="sponsor" role="listitem"><img src="./assets/sponsor-2.png" alt="Sponsor 2" loading="lazy" /></div>
-        <div class="sponsor" role="listitem"><img src="./assets/sponsor-3.png" alt="Sponsor 3" loading="lazy" /></div>
-
-        <!-- Placeholder tile -->
-        <div class="sponsor sponsor--placeholder" role="listitem" aria-label="More sponsors coming soon">
-          <span>More coming soon</span>
         </div>
       </div>
     </section>
 
     <!-- =========================
-      CONTACT
+      EXPERIENCE SECTION (GameNations-style)
+      - Left “label pills”
+      - Right descriptions + arrows
+      - We’ll style this modernly in CSS later
     ========================== -->
-    <section class="section" id="contact" aria-label="Contact">
-      <div class="section__head">
-        <h2 class="h2">Contact</h2>
-        <p class="sub">Booths, partnerships, community collabs — reach out.</p>
-      </div>
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="section__inner">
+        <header class="section__head">
+          <h2 id="experience-title" class="section__title">
+            What you’ll experience
+          </h2>
+          <p class="section__sub">
+            Built to feel like discovery — not just a loud expo floor.
+          </p>
+        </header>
 
-      <div class="contact">
-        <!-- Email -->
-        <a class="btn btn--primary" href="mailto:ggconph@gmail.com?subject=GGCon%20Inquiry">
-          Email: ggconph@gmail.com
-        </a>
+        <div class="featurelist" role="list">
+          <!-- Item 1 -->
+          <div class="feature" role="listitem">
+            <div class="feature__label">
+              <span class="tag">Showroom Testing</span>
+            </div>
+            <div class="feature__body">
+              <p class="feature__text">
+                Try IEMs, DAC/amps, keyboards, mice, and more — with space to compare and ask questions.
+              </p>
+              <span class="feature__arrow" aria-hidden="true">→</span>
+            </div>
+          </div>
 
-        <!-- Social: replace with your real links -->
-        <a class="btn btn--ghost" href="https://facebook.com/ggconph" target="_blank" rel="noopener">Facebook</a>
-        <a class="btn btn--ghost" href="https://instagram.com/ggconph" target="_blank" rel="noopener">Instagram</a>
-		<a class="btn btn--ghost" href="https://x.com/ggconph" target="_blank" rel="noopener">X/Twitter</a>
-		<a class="btn btn--ghost" href="https://tiktok.com/@ggconph" target="_blank" rel="noopener">TikTok</a>
+          <!-- Item 2 -->
+          <div class="feature" role="listitem">
+            <div class="feature__label">
+              <span class="tag">Community Moments</span>
+            </div>
+            <div class="feature__body">
+              <p class="feature__text">
+                Meet people who share the same hobbies — from audio nerds to gamers to anime fans.
+              </p>
+              <span class="feature__arrow" aria-hidden="true">→</span>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="feature" role="listitem">
+            <div class="feature__label">
+              <span class="tag">Creator-Friendly</span>
+            </div>
+            <div class="feature__body">
+              <p class="feature__text">
+                Content opportunities, interviews, and discovery moments — without forcing nonstop stage noise.
+              </p>
+              <span class="feature__arrow" aria-hidden="true">→</span>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="feature" role="listitem">
+            <div class="feature__label">
+              <span class="tag">More Coming Soon</span>
+            </div>
+            <div class="feature__body">
+              <p class="feature__text">
+                We’re holding back spoilers for now. Expect more details and reveals on our socials.
+              </p>
+              <span class="feature__arrow" aria-hidden="true">→</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- =========================
-      FOOTER
+      HIGHLIGHTS SECTION
+      - Keep it non-spoilery
     ========================== -->
-    <footer class="footer">
-      <p>© <span id="year"></span> Good Game Con<span class="dot">!</span> • All rights reserved.</p>
-    </footer>
+    <section class="section" id="highlights" aria-labelledby="highlights-title">
+      <div class="section__inner">
+        <header class="section__head">
+          <h2 id="highlights-title" class="section__title">Highlights</h2>
+          <p class="section__sub">
+            A few things you can expect — with more announcements coming soon.
+          </p>
+        </header>
+
+        <div class="tiles" role="list">
+          <article class="tile" role="listitem">
+            <h3 class="tile__title">Meet & Greet</h3>
+            <p class="tile__text">A main traffic anchor with guests and community moments.</p>
+          </article>
+
+          <article class="tile" role="listitem">
+            <h3 class="tile__title">Raffle & Giveaways</h3>
+            <p class="tile__text">Timed draws and a bigger end-of-day moment.</p>
+          </article>
+
+          <article class="tile" role="listitem">
+            <h3 class="tile__title">Brand Spotlights</h3>
+            <p class="tile__text">Feature moments for brands and shops (where applicable).</p>
+          </article>
+
+          <article class="tile" role="listitem">
+            <h3 class="tile__title">More Coming Soon</h3>
+            <p class="tile__text">No spoilers yet — follow our socials for updates.</p>
+          </article>
+        </div>
+
+        <!-- Tickets reminder (still coming soon) -->
+        <div class="banner" role="region" aria-label="Tickets status">
+          <div class="banner__copy">
+            <h3 class="banner__title">Tickets are coming soon.</h3>
+            <p class="banner__text">We’ll announce the ticket drop on our social pages first.</p>
+          </div>
+          <button class="btn btn--primary" type="button" disabled aria-disabled="true">
+            Tickets: Coming Soon
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+      PARTNERS / SPONSORS SECTION
+      - Keep flexible: can be placeholders until reveal
+    ========================== -->
+    <section class="section" id="partners" aria-labelledby="partners-title">
+      <div class="section__inner">
+        <header class="section__head">
+          <h2 id="partners-title" class="section__title">Partners</h2>
+          <p class="section__sub">
+            We’ll reveal more as confirmations go live.
+          </p>
+        </header>
+
+        <div class="logos" role="list" aria-label="Partner logos">
+          <!-- Replace placeholders with actual logo images -->
+          <div class="logo" role="listitem">
+            <img src="./assets/partner-1.png" alt="Partner 1" loading="lazy" />
+          </div>
+          <div class="logo" role="listitem">
+            <img src="./assets/partner-2.png" alt="Partner 2" loading="lazy" />
+          </div>
+          <div class="logo" role="listitem">
+            <img src="./assets/partner-3.png" alt="Partner 3" loading="lazy" />
+          </div>
+
+          <!-- Placeholder tile -->
+          <div class="logo logo--placeholder" role="listitem" aria-label="More partners coming soon">
+            <span>More coming soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+      SOCIALS SECTION (important)
+      - Since website isn't officially launched, direct them here
+    ========================== -->
+    <section class="section" id="socials" aria-labelledby="socials-title">
+      <div class="section__inner">
+        <header class="section__head">
+          <h2 id="socials-title" class="section__title">Follow for updates</h2>
+          <p class="section__sub">
+            Announcements will go live on socials first.
+          </p>
+        </header>
+
+        <div class="socialgrid" role="list">
+          <a class="social" role="listitem" href="https://fb.me/GGConPH" target="_blank" rel="noopener">
+            <span class="social__name">Facebook</span>
+            <span class="social__handle">fb.me/GGConPH</span>
+            <span class="social__arrow" aria-hidden="true">↗</span>
+          </a>
+
+          <a class="social" role="listitem" href="https://instagram.com/ggconph" target="_blank" rel="noopener">
+            <span class="social__name">Instagram</span>
+            <span class="social__handle">instagram.com/ggconph</span>
+            <span class="social__arrow" aria-hidden="true">↗</span>
+          </a>
+
+          <a class="social" role="listitem" href="https://tiktok.com/@ggconph" target="_blank" rel="noopener">
+            <span class="social__name">TikTok</span>
+            <span class="social__handle">tiktok.com/@ggconph</span>
+            <span class="social__arrow" aria-hidden="true">↗</span>
+          </a>
+
+          <a class="social" role="listitem" href="https://x.com/GGConPH" target="_blank" rel="noopener">
+            <span class="social__name">X / Twitter</span>
+            <span class="social__handle">x.com/GGConPH</span>
+            <span class="social__arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+      CONTACT SECTION
+    ========================== -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="section__inner">
+        <header class="section__head">
+          <h2 id="contact-title" class="section__title">Contact</h2>
+          <p class="section__sub">
+            Booths, partnerships, and collaborations.
+          </p>
+        </header>
+
+        <div class="contact">
+          <a class="btn btn--primary" href="mailto:ggconph@gmail.com?subject=Good%20Game%20Con%20Inquiry">
+            Email: ggconph@gmail.com
+          </a>
+          <a class="btn btn--ghost" href="https://fb.me/GGConPH" target="_blank" rel="noopener">Message on Facebook</a>
+          <a class="btn btn--ghost" href="https://instagram.com/ggconph" target="_blank" rel="noopener">DM on Instagram</a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ======================================================
-    Tiny JS: auto-year only (optional)
+    FOOTER
   ======================================================= -->
+  <footer class="footer" role="contentinfo">
+    <p>© <span id="year"></span> Good Game Con! • Under construction</p>
+  </footer>
+
+  <!-- Tiny JS: auto-year only (optional) -->
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
