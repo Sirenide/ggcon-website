@@ -706,3 +706,99 @@ button:focus-visible {
     grid-template-columns: 1fr;
   }
 }
+
+/* 1) Flatten sections: remove card-like boxes */
+.section {
+  border-bottom: 1px solid #ffffff14;
+  padding: 76px 0;
+}
+
+.section--hero {
+  padding-top: 86px;
+  padding-bottom: 86px;
+}
+
+/* Remove any “panel” look inside sections (keep content flat) */
+.section__inner {
+  background: #00000000;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+/* 2) Make the topbar cleaner + nav readable */
+.topbar {
+  background: #060816b3;            /* slightly more opaque for readability */
+  border-bottom: 1px solid #ffffff14;
+}
+
+.nav__link {
+  color: #e9edff;                    /* make nav links readable */
+  opacity: 0.92;
+}
+
+.nav__link:hover {
+  color: #ffffff;
+  background: #ffffff10;
+  border-color: #ffffff22;
+}
+
+/* Optional: reduce header “weight” */
+.topbar {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+/* 3) Reduce “boxy” feel of tiles/logos/social blocks */
+.tile,
+.logo,
+.social {
+  border-radius: 14px;               /* less rounded */
+  background: #ffffff07;             /* lighter fill */
+  border: 1px solid #ffffff12;       /* thinner */
+  box-shadow: none;
+}
+
+/* 4) Make hero feel more like a modern editorial page */
+.hero__title {
+  letter-spacing: -0.06em;
+}
+
+.hero__lead {
+  max-width: 68ch;
+}
+
+/* 5) Make the hero meta chips lighter (less “pill UI”) */
+.meta {
+  background: #ffffff08;
+  border: 1px solid #ffffff12;
+}
+
+/* 6) Reduce heavy borders on feature rows */
+.feature {
+  border-top: 1px solid #ffffff12;
+  padding: 22px 0;
+}
+
+.feature:last-child {
+  border-bottom: 1px solid #ffffff12;
+}
+
+/* 7) Make the left “tag pills” feel cleaner */
+.tag {
+  box-shadow: none;
+  background: #f7f9ff;
+  border: 1px solid #00000000;
+}
+
+/* 8) Remove hover bounce if you want ultra clean */
+.tile:hover,
+.social:hover {
+  transform: none;
+}
+
+/* 9) Improve overall text rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
