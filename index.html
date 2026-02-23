@@ -19,6 +19,8 @@
 
   <!-- ===== CSS (to be created after HTML approval) ===== -->
   <link rel="stylesheet" href="./styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Changa:wght@400;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- Optional favicon -->
   <!-- <link rel="icon" href="./assets/favicon.png" /> -->
@@ -38,8 +40,7 @@
     <a class="brand" href="#top" aria-label="Good Game Con Home">
       <!-- Replace with your logo path -->
       <img class="brand__logo" src="./assets/good-game-con-logo.png" alt="Good Game Con! logo" />
-      <!-- If you prefer text-only brand, we can hide the image and show text in CSS later -->
-      <span class="brand__text">Good Game Con<span class="accent">!</span></span>
+      <!-- <span class="brand__text">Good Game Con<span class="accent">!</span></span> -->
     </a>
 
     <!-- Navigation (anchors to sections) -->
@@ -55,7 +56,7 @@
     <div class="topbar__cta">
       <!-- Tickets are coming soon: disabled button for now -->
       <button class="btn btn--primary" type="button" disabled aria-disabled="true" title="Tickets are coming soon">
-        Tickets: Coming Soon
+        Tickets: SOON<span class="accent">!</span>
       </button>
 
       <!-- Social shortcut (we’ll style this like a minimal icon/button later) -->
@@ -78,7 +79,7 @@
         <p class="eyebrow">PORTABLE AUDIO × VIDEO GAMES × ANIME CULTURE</p>
 
         <h1 id="hero-title" class="hero__title">
-          Good Game Con<span class="accent">!</span>
+          GOOD GAME CON<span class="accent">!</span>
         </h1>
 
         <p class="hero__lead">
@@ -101,17 +102,17 @@
         <div class="hero__actions">
           <!-- Tickets: Coming Soon (keep disabled) -->
           <button class="btn btn--primary" type="button" disabled aria-disabled="true">
-            Tickets: Coming Soon
+            BUY YOUR TICKETS<span class="accent">!</span>
           </button>
 
           <!-- Push them to socials instead of “track the website” -->
           <a class="btn btn--ghost" href="#socials">
-            Follow for announcements
+            FOLLOW US
           </a>
 
           <!-- Optional: Email inquiry -->
           <a class="btn btn--ghost" href="mailto:ggconph@gmail.com?subject=Good%20Game%20Con%20Inquiry">
-            Email us
+            CONTACT US
           </a>
         </div>
 
@@ -128,7 +129,7 @@
     <section class="section" id="about" aria-labelledby="about-title">
       <div class="section__inner">
         <header class="section__head">
-          <h2 id="about-title" class="section__title">What is Good Game Con!?</h2>
+          <h2 id="about-title" class="section__title">GOOD GAME CON<span class="accent">?</span></h2>
           <p class="section__sub">
             A focused event built around real product discovery and real community energy, not just looking at stuff behind glass.
           </p>
@@ -144,12 +145,21 @@
           </div>
 
           <!-- Right column: key points -->
-          <div class="col">
-            <ul class="bullets" aria-label="Core pillars">
-              <li><strong>Hands-on first:</strong> Try products properly before you buy.</li>
-              <li><strong>Community-built:</strong> Meet creators, hobbyists, and new friends.</li>
-              <li><strong>Brand-friendly:</strong> A showroom approach that helps people discover fit and value.</li>
-            </ul>
+          <div class="about-grid">
+            <div class="about-card">
+              <h3>Hands-on first</h3>
+              <p>Try products properly before you buy.</p>
+            </div>
+
+            <div class="about-card">
+              <h3>Community-built</h3>
+              <p>Meet creators, hobbyists, and new friends.</p>
+            </div>
+
+            <div class="about-card">
+              <h3>Brand-friendly</h3>
+              <p>A showroom approach that helps people discover fit and value.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -162,10 +172,10 @@
       <div class="section__inner">
         <header class="section__head">
           <h2 id="experience-title" class="section__title">
-            What you’ll experience
+            THE EXPERIENCE<span class="accent">.</span>
           </h2>
           <p class="section__sub">
-            Built to feel like discovery — not just a loud expo floor.
+            Built to feel like discovery.
           </p>
         </header>
 
@@ -173,7 +183,7 @@
           <!-- Item 1 -->
           <div class="feature" role="listitem">
             <div class="feature__label">
-              <span class="tag">Showroom Testing</span>
+              <span class="tag">SHOWROOM TESTING</span>
             </div>
             <div class="feature__body">
               <p class="feature__text">
@@ -186,7 +196,7 @@
           <!-- Item 2 -->
           <div class="feature" role="listitem">
             <div class="feature__label">
-              <span class="tag">Community Moments</span>
+              <span class="tag">COMMUNITY MOMENTS</span>
             </div>
             <div class="feature__body">
               <p class="feature__text">
@@ -199,7 +209,7 @@
           <!-- Item 3 -->
           <div class="feature" role="listitem">
             <div class="feature__label">
-              <span class="tag">Creator-Friendly</span>
+              <span class="tag">CREATOR-FRIENDLY</span>
             </div>
             <div class="feature__body">
               <p class="feature__text">
@@ -212,7 +222,7 @@
           <!-- Item 4 -->
           <div class="feature" role="listitem">
             <div class="feature__label">
-              <span class="tag">More Coming Soon</span>
+              <span class="tag">MORE TO COME</span>
             </div>
             <div class="feature__body">
               <p class="feature__text">
@@ -231,7 +241,7 @@
     <section class="section" id="highlights" aria-labelledby="highlights-title">
       <div class="section__inner">
         <header class="section__head">
-          <h2 id="highlights-title" class="section__title">Highlights</h2>
+          <h2 id="highlights-title" class="section__title">HIGHLIGHTS<span class="accent">.</span></h2>
           <p class="section__sub">
             A few things you can expect with more announcements coming soon.
           </p>
@@ -239,34 +249,34 @@
 
         <div class="tiles" role="list">
           <article class="tile" role="listitem">
-            <h3 class="tile__title">Meet & Greet</h3>
+            <h3 class="tile__title">MEET & GREET</h3>
             <p class="tile__text">A main traffic anchor with guests and community moments.</p>
           </article>
 
           <article class="tile" role="listitem">
-            <h3 class="tile__title">Raffle & Giveaways</h3>
+            <h3 class="tile__title">RAFFLE & GIVEAWAYS</h3>
             <p class="tile__text">Timed draws and a bigger end-of-day moment.</p>
           </article>
 
           <article class="tile" role="listitem">
-            <h3 class="tile__title">Brand Spotlights</h3>
+            <h3 class="tile__title">BRAND SPOTLIGHTS</h3>
             <p class="tile__text">Feature moments for brands and shops (where applicable).</p>
           </article>
 
           <article class="tile" role="listitem">
-            <h3 class="tile__title">More Coming Soon</h3>
-            <p class="tile__text">No spoilers yet — follow our socials for updates.</p>
+            <h3 class="tile__title">WANT MORE?</h3>
+            <p class="tile__text">No spoilers yet! Follow our socials for updates.</p>
           </article>
         </div>
 
         <!-- Tickets reminder (still coming soon) -->
         <div class="banner" role="region" aria-label="Tickets status">
           <div class="banner__copy">
-            <h3 class="banner__title">Tickets are coming soon.</h3>
-            <p class="banner__text">We’ll announce the ticket drop on our social pages first.</p>
+            <h3 class="banner__title">Tickets sales VERY soon!</h3>
+            <p class="banner__text">We’ll announce the ticket drop on our social pages.</p>
           </div>
           <button class="btn btn--primary" type="button" disabled aria-disabled="true">
-            Tickets: Coming Soon
+            BUY YOUR TICKETS SOON!
           </button>
         </div>
       </div>
@@ -278,27 +288,28 @@
     <section class="section" id="partners" aria-labelledby="partners-title">
       <div class="section__inner">
         <header class="section__head">
-          <h2 id="partners-title" class="section__title">Partners</h2>
+          <h2 id="partners-title" class="section__title">THEY MADE IT POSSIBLE<span class="accent">.</span></h2>
           <p class="section__sub">
-            We’ll reveal more as confirmations go live.
+            Our Sponsors made Good Game Con<span class="accent">!</span> happen. We’ll reveal more as confirmations go live.
           </p>
         </header>
 
         <div class="logos" role="list" aria-label="Partner logos">
           <!-- Replace placeholders with actual logo images -->
           <div class="logo" role="listitem">
-            <img src="./assets/partner-1.png" alt="Partner 1" loading="lazy" />
+            <div class="logo-bg">
+            <img src="./assets/pulsar_logo.jpg" alt="Pulsar" loading="lazy" />
+            </div>
           </div>
           <div class="logo" role="listitem">
-            <img src="./assets/partner-2.png" alt="Partner 2" loading="lazy" />
-          </div>
-          <div class="logo" role="listitem">
-            <img src="./assets/partner-3.png" alt="Partner 3" loading="lazy" />
+            <div class="logo-bg">
+            <img src="./assets/venue_logo.png" alt="Sequoia Hotel, QC" loading="lazy" />
+            </div>
           </div>
 
           <!-- Placeholder tile -->
           <div class="logo logo--placeholder" role="listitem" aria-label="More partners coming soon">
-            <span>More coming soon</span>
+            <span>MORE TO BE ADDED</span>
           </div>
         </div>
       </div>
@@ -310,35 +321,31 @@
     <section class="section" id="socials" aria-labelledby="socials-title">
       <div class="section__inner">
         <header class="section__head">
-          <h2 id="socials-title" class="section__title">Follow for updates</h2>
+          <h2 id="socials-title" class="section__title">UPDATES<span class="accent">.</span></h2>
           <p class="section__sub">
             Announcements will go live on socials first.
           </p>
         </header>
 
-        <div class="socialgrid" role="list">
-          <a class="social" role="listitem" href="https://fb.me/GGConPH" target="_blank" rel="noopener">
-            <span class="social__name">Facebook</span>
-            <span class="social__handle">fb.me/GGConPH</span>
-            <span class="social__arrow" aria-hidden="true">↗</span>
+        <div class="social-icons">
+          <a href="https://fb.me/GGConPH" target="_blank" rel="noopener" class="social-icon">
+            <img src="assets/facebook.svg" alt="Facebook">
           </a>
 
-          <a class="social" role="listitem" href="https://instagram.com/ggconph" target="_blank" rel="noopener">
-            <span class="social__name">Instagram</span>
-            <span class="social__handle">instagram.com/ggconph</span>
-            <span class="social__arrow" aria-hidden="true">↗</span>
+          <a href="https://instagram.com/ggconph" target="_blank" rel="noopener" class="social-icon">
+            <img src="assets/instagram.svg" alt="Instagram">
           </a>
 
-          <a class="social" role="listitem" href="https://tiktok.com/@ggconph" target="_blank" rel="noopener">
-            <span class="social__name">TikTok</span>
-            <span class="social__handle">tiktok.com/@ggconph</span>
-            <span class="social__arrow" aria-hidden="true">↗</span>
+          <a href="https://x.com/GGConPH" target="_blank" rel="noopener" class="social-icon">
+            <img src="assets/x.svg" alt="X / Twitter">
           </a>
 
-          <a class="social" role="listitem" href="https://x.com/GGConPH" target="_blank" rel="noopener">
-            <span class="social__name">X / Twitter</span>
-            <span class="social__handle">x.com/GGConPH</span>
-            <span class="social__arrow" aria-hidden="true">↗</span>
+          <a href="https://tiktok.com/@ggconph" target="_blank" rel="noopener" class="social-icon">
+            <img src="assets/tiktok.svg" alt="TikTok">
+          </a>
+
+          <a href="https://youtube.com/@ggconph" target="_blank" rel="noopener" class="social-icon">
+            <img src="assets/youtube.svg" alt="YouTube">
           </a>
         </div>
       </div>
@@ -350,7 +357,7 @@
     <section class="section" id="contact" aria-labelledby="contact-title">
       <div class="section__inner">
         <header class="section__head">
-          <h2 id="contact-title" class="section__title">Contact</h2>
+          <h2 id="contact-title" class="section__title">APPLY<span class="accent">.</span></h2>
           <p class="section__sub">
             Booths, partnerships, and collaborations.
           </p>
@@ -372,7 +379,7 @@
     FOOTER
   ======================================================= -->
   <footer class="footer" role="contentinfo">
-    <p>© <span id="year"></span> Good Game Con! • Under construction</p>
+    <p>© <span id="year"></span> Good Game Con<span class="accent">!</span> • Under construction</p>
   </footer>
 
   <!-- Tiny JS: auto-year only (optional) -->
