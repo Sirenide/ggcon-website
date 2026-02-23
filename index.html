@@ -76,17 +76,30 @@
     ========================== -->
     <section class="section section--hero" aria-labelledby="hero-title">
       <div class="section__inner">
-        <p class="eyebrow">PORTABLE AUDIO × VIDEO GAMES × ANIME CULTURE</p>
 
+        <!-- HERO TEXT ALTERNATIVE
+        <p class="eyebrow">PORTABLE AUDIO <span class="accent">×</span> VIDEO GAMES <span class="accent">×</span> ANIME CULTURE</p>
         <h1 id="hero-title" class="hero__title">
           GOOD GAME CON<span class="accent">!</span>
+        </h1> 
+        -->
+
+        <!-- HERO LOGO -->
+        <h1 id="hero-title" class="hero__logo">
+          <img 
+            src="./assets/good-game-con-logo_stack.png" 
+            alt="Good Game Con — Portable Audio × Video Games × Anime Culture"
+            class="hero__logo-img"
+          />
         </h1>
 
+        <!-- TEMPORARILY REMOVE
         <p class="hero__lead">
           A hands-on, showroom-style con where you can try gear, meet the community, and discover brands in person.
         </p>
+        -->
 
-        <!-- Venue + Date (edit later) -->
+        <!-- Venue + Date -->
         <div class="hero__meta" aria-label="Event details">
           <div class="meta">
             <span class="meta__label">Venue</span>
@@ -100,20 +113,27 @@
 
         <!-- Hero CTA row -->
         <div class="hero__actions">
+
           <!-- Tickets: Coming Soon (keep disabled) -->
+          <button class="hero-cta-bar" disabled>
+            TICKETS AVAILABLE SOON<span class="accent">!</span>
+          </button>
+
+          <!-- OLD BUTTON
           <button class="btn btn--primary" type="button" disabled aria-disabled="true">
             BUY YOUR TICKETS<span class="accent">!</span>
           </button>
+          -->
 
-          <!-- Push them to socials instead of “track the website” -->
+          <!-- TEMPORARILY REMOVE
           <a class="btn btn--ghost" href="#socials">
             FOLLOW US
           </a>
 
-          <!-- Optional: Email inquiry -->
           <a class="btn btn--ghost" href="mailto:ggconph@gmail.com?subject=Good%20Game%20Con%20Inquiry">
             CONTACT US
           </a>
+          -->
         </div>
 
         <!-- Small note (no spoilers) -->
@@ -385,6 +405,18 @@
   <!-- Tiny JS: auto-year only (optional) -->
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <script>
+    const topbar = document.querySelector(".topbar");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > window.innerHeight * 0.7) {
+        topbar.classList.add("topbar--solid");
+      } else {
+        topbar.classList.remove("topbar--solid");
+      }
+    });
   </script>
 </body>
 </html>

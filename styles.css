@@ -28,8 +28,8 @@
   /* Type scale */
   --font-display: 'Changa', roboto, sans-serif;
   --font-body: 'Roboto', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
-  --h1: clamp(64px, 8vw, 140px);
-  --h2: clamp(40px, 5vw, 80px);
+  --h1: clamp(72px, 9vw, 150px);
+  --h2: clamp(48px, 6vw, 96px);
   --lead: 18px;
   --body: 16px;
 
@@ -49,6 +49,7 @@ body {
 html {
   /* Modern feel when clicking nav anchors */
   scroll-behavior: smooth;
+  scroll-padding-top: 90px; /* match navbar height */
 }
 
 body {
@@ -82,8 +83,11 @@ body {
   - Sticky, translucent, readable
 ========================= */
 .topbar {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+
   z-index: 20;
 
   display: flex;
@@ -91,11 +95,47 @@ body {
   justify-content: space-between;
   gap: 18px;
 
-  padding: 14px var(--pad);
+  padding: 16px var(--pad);
 
-  background: #060816cc;
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--faint);
+  background: transparent;
+  border-bottom: 1px solid transparent;
+
+  transition:
+    background 0.35s ease,
+    backdrop-filter 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* Scrolled state */
+.topbar--solid {
+  background: #060816f2;
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid #ffffff1a;
+  box-shadow: 0 10px 40px #00000088;
+}
+
+/* Accent line */
+.topbar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0%;
+
+  background: linear-gradient(
+    90deg,
+    #07d9ea,
+    #fed107,
+    #ff3132
+  );
+
+  transition: width 0.6s ease;
+}
+
+.topbar--solid::after {
+  width: 100%;
 }
 
 /* Brand (logo + text) */
@@ -149,10 +189,12 @@ body {
   border-radius: 999px;
   border: 1px solid #00000000;
   opacity: 0.92;
+  transition: transform 0.35s ease, border-color 0.35s ease;
 }
 
 .nav__link:hover {
   opacity: 1;
+  transform: translateY(-3px);
   background: var(--fainter);
   border-color: #07d9ea;
 }
@@ -261,11 +303,53 @@ button:focus-visible {
   border-radius: 999px;
 }
 
+/* ========================================
+   FULL-WIDTH TICKETS STRIPE BUTTON
+======================================== */
+
+.hero-cta-bar {
+  width: 100vw;
+  margin-left: calc(50% - 50vw); /* break out of centered container */
+
+  background: var(--yellow);
+  color: #061029;
+
+  padding: 10px 10px;
+
+  text-align: center;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: clamp(18px, 2.2vw, 28px);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  border: none;
+  cursor: pointer;
+
+  transition: transform 0.25s ease, opacity 0.3s ease;
+}
+
+/* Hover (only when enabled) */
+.hero-cta-bar:not(:disabled):hover {
+  transform: scale(1.015);
+}
+
+/* Active press */
+.hero-cta-bar:not(:disabled):active {
+  transform: scale(0.99);
+}
+
+/* Disabled state */
+.hero-cta-bar:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
 /* =========================
   6) MAIN + SECTION SEPARATION
 ========================= */
 .main {
-  padding: 18px 0 0;
+  padding: 80px 0 0;
 }
 
 .accent {
@@ -282,8 +366,8 @@ button:focus-visible {
 }
 
 .section--hero {
-  padding-top: 86px;
-  padding-bottom: 86px;
+  padding-top: 0px;
+  padding-bottom: 20px;
   position: relative;
   overflow: hidden;
   background: #060816;
@@ -303,8 +387,8 @@ button:focus-visible {
   background-position: center;
   background-repeat: no-repeat;
 
-  opacity: 0.28;           /* more visible KV */
-  filter: saturate(1.12) contrast(1.08);
+  opacity: 1;           /* more visible KV */
+  /* filter: saturate(1.12) contrast(1.08); */
 }
 
 /* Hero readability overlay + retro glow */
@@ -312,7 +396,7 @@ button:focus-visible {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
   pointer-events: none;
 
   background:
@@ -336,12 +420,17 @@ button:focus-visible {
   flex-direction: column;
   align-items: center;
   position: relative;
-  z-index: 1;
+  z-index: 5;
 }
 
 /* 5) ABOUT section: clean navy block */
 #about.section {
-  background: #070a18;
+
+  background:
+    radial-gradient(900px 520px at 22% 38%, #07d9ea22 0%, #00000000 60%),
+    radial-gradient(900px 520px at 78% 24%, #fed10716 0%, #00000000 62%),
+    radial-gradient(900px 520px at 62% 70%, #0131ac3a 0%, #00000000 62%),
+    linear-gradient(180deg, #06081622 0%, #06081610 45%, #06081622 100%);
 }
 
 /* 6) EXPERIENCE section: CYAN-ACCENT esports block */
@@ -509,9 +598,28 @@ button:focus-visible {
   max-width: 680px;
 }
 
+/* ========================================
+   HERO LOGO REPLACEMENT
+======================================== */
+
+.hero__logo {
+  margin-top: -40px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero__logo-img {
+  width: clamp(200px, 30vw, 520px);
+  max-width: 90%;
+  height: auto;
+  display: block;
+}
+
+
 /* Meta chips (Venue/Date) */
 .hero__meta {
-  margin-top: 22px;
+  margin-top: 20px;
   display: flex;
   gap: 14px;
   justify-content: center;
@@ -523,7 +631,7 @@ button:focus-visible {
   align-items: center;
   gap: 12px;
 
-  padding: 14px 22px;
+  padding: 15px 22px;
   border-radius: 14px;
   border: 1px solid #ffffff26;
 
@@ -598,8 +706,6 @@ button:focus-visible {
 .eyebrow,
 .hero__lead,
 .hero__note {
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
 }
 
