@@ -36,6 +36,34 @@
     SITE HEADER / NAV
   ======================================================= -->
   <header class="topbar" role="banner">
+
+
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="mobile-nav" aria-hidden="true">
+      <div class="mobile-nav__panel">
+        <div class="mobile-nav__header">
+          <span class="mobile-nav__title">Menu</span>
+          <button class="mobile-nav__close" type="button" aria-label="Close menu">✕</button>
+        </div>
+
+        <a class="mobile-nav__link" href="#about">About</a>
+        <a class="mobile-nav__link" href="#experience">Experience</a>
+        <a class="mobile-nav__link" href="#highlights">Highlights</a>
+        <a class="mobile-nav__link" href="#partners">Partners</a>
+        <a class="mobile-nav__link" href="#contact">Contact</a>
+
+        <div class="mobile-nav__cta">
+          <button class="btn btn--primary" disabled>Tickets: SOON<span class="accent">!</span></button>
+          <a class="btn btn--ghost" href="https://fb.me/GGConPH" target="_blank" rel="noopener">Follow Updates</a>
+        </div>
+      </div>
+    </div>
+
+
+
     <!-- Brand / Logo -->
     <a class="brand" href="#top" aria-label="Good Game Con Home">
       <!-- Replace with your logo path -->
@@ -402,11 +430,13 @@
     <p>© <span id="year"></span> Good Game Con<span class="accent">!</span> • Under construction</p>
   </footer>
 
-  <!-- Tiny JS: auto-year only (optional) -->
+  <!-- Tiny JS: auto-year only -->
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 
+
+  <!-- Tiny JS: for navbar scroll -->
   <script>
     const topbar = document.querySelector(".topbar");
 
@@ -418,5 +448,33 @@
       }
     });
   </script>
+
+  <!-- For navbar burger -->
+  <script>
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.querySelector('.mobile-nav');
+  const closeBtn = document.querySelector('.mobile-nav__close');
+
+  function openMenu(){
+    menu.classList.add('is-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    menu.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeMenu(){
+    menu.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('aria-hidden', 'true');
+  }
+
+  toggle?.addEventListener('click', openMenu);
+  closeBtn?.addEventListener('click', closeMenu);
+  menu?.addEventListener('click', (e) => {
+    if (e.target === menu) closeMenu();
+  });
+
+  // Close on link click
+  menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+</script>
 </body>
 </html>
