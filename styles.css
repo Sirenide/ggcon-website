@@ -6,7 +6,7 @@
   1) BRAND TOKENS (EDIT HERE)
 ========================= */
 :root {
-  /* Your palette */
+  /* Brand palette */
   --key: #0131ac;
   --cyan: #07d9ea;
   --yellow: #fed107;
@@ -238,16 +238,21 @@ button:focus-visible {
   padding: 18px 0 0;
 }
 
+.accent {
+  color: #ff3132; /* red accent */
+}
+
 /* Each section has its own “moment” */
 .section {
-  padding: 78px 0;
-  border-bottom: 1px solid var(--faint);
+  padding: 100px 0;
 }
 
 .section--hero {
   padding-top: 86px;
   padding-bottom: 86px;
 }
+
+
 
 /* Inner container */
 .section__inner {
