@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- ===== Meta / Page Basics ===== -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Good Game Con! — Under Construction</title>
+  <meta name="description" content="GGCon! is building something big. Tickets and event info inside." />
+
+  <!-- ===== Social Preview (Optional) ===== -->
+  <!-- Replace the URL values once your domain is live -->
+  <meta property="og:title" content="GGCon! — Under Construction" />
+  <meta property="og:description" content="Venue, date, and tickets for the upcoming GGCon! event." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://YOURDOMAIN.com/" />
+  <meta property="og:image" content="https://YOURDOMAIN.com/assets/og-image.png" />
+
+  <!-- ===== Stylesheet Link (CSS is separate as requested) ===== -->
+  <link rel="stylesheet" href="./styles.css" />
+
+  <!-- ===== Favicon (Optional) ===== -->
+  <!-- Put a favicon at /assets/favicon.png or .ico and update the path -->
+  <link rel="icon" href="./assets/favicon.png" />
+</head>
+
+<body>
+  <!-- ===== Background Decoration Layer (purely visual) ===== -->
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- ===== Page Wrapper ===== -->
+  <main class="page">
+    <!-- ===== Top Header / Brand ===== -->
+    <header class="header">
+      <!-- Logo: replace src with your real logo path -->
+      <a class="brand" href="#" aria-label="GGCon Home">
+        <img
+          class="brand__logo"
+          src="./assets/logo.png"
+          alt="GGCon logo"
+          loading="eager"
+        />
+      </a>
+
+      <!-- Small status pill (optional) -->
+      <div class="status" role="status" aria-live="polite">
+        Under construction • What are you looking forward to?
+      </div>
+    </header>
+
+    <!-- ===== Hero Section ===== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__content">
+        <!-- Main Headline -->
+        <h1 id="hero-title" class="hero__title">
+          Good Game Con! is coming soon.
+        </h1>
+
+        <!-- Venue + Date Text (edit these) -->
+        <p class="hero__meta">
+          <span class="meta-pill">📍 <strong>VENUE:</strong> <span>SEQUIOA HOTEL, QUEZON CITY, PHILIPPINES</span></span>
+          <span class="meta-pill">🗓️ <strong>DATE:</strong> <span>APRIL 18, 2026</span></span>
+        </p>
+
+        <!-- Short Intro / What GGCon is -->
+        <p class="hero__lead">
+          Uniting <strong>portable audio</strong>, <strong>video games</strong>, and <strong>anime culture</strong> under one roof—built for hands-on discovery,
+          community meetups, and brand experiences you can actually try.
+        </p>
+
+        <!-- Primary Actions -->
+        <div class="actions">
+          <!-- Tickets button: replace href with your ticket link -->
+          <a class="btn btn--primary" href="https://YOUR-TICKET-LINK.com" target="_blank" rel="noopener">
+            Get Tickets (TBA)
+          </a>
+
+          <!-- Contact button: choose ONE approach below -->
+          <!-- OPTION A: opens email -->
+          <a class="btn btn--ghost" href="mailto:hello@ggconph.com?subject=GGCon%20Inquiry">
+            Contact Us
+          </a>
+
+          <!-- OPTION B: opens a contact section instead (uncomment if you prefer) -->
+          <!--
+          <a class="btn btn--ghost" href="#contact">
+            Contact Us
+          </a>
+          -->
+        </div>
+
+        <!-- Small note under the buttons -->
+        <p class="hero__note">
+          Website is being built. This page stays live so you can grab tickets and see event basics.
+        </p>
+      </div>
+
+      <!-- Right-side panel (optional): can show a poster image -->
+      <aside class="hero__panel" aria-label="Event preview">
+        <!-- Replace with your key visual / teaser image if you want -->
+        <img
+          class="panel__image"
+          src="./assets/key-visual.png"
+          alt="GGCon event key visual"
+          loading="lazy"
+        />
+      </aside>
+    </section>
+
+    <!-- ===== About Section ===== -->
+    <section class="grid" aria-label="About">
+      <!-- About the Event -->
+      <article class="card" aria-labelledby="about-event-title">
+        <h2 id="about-event-title" class="card__title">About the event</h2>
+        <p class="card__text">
+          Good Game Con! is a community-first expo where attendees can test gear, discover new brands, meet creators,
+          and enjoy program segments.
+        </p>
+        <ul class="card__list">
+          <li>Hands-on product discovery (showroom-style)</li>
+          <li>Meet & greet + raffle moments</li>
+          <li>Audio / gaming / anime communities in one place</li>
+        </ul>
+      </article>
+
+      <!-- About Us -->
+      <article class="card" aria-labelledby="about-us-title">
+        <h2 id="about-us-title" class="card__title">About us</h2>
+        <p class="card__text">
+          Under Construction.
+        </p>
+        <p class="card__text">
+          More coming soon!
+        </p>
+      </article>
+    </section>
+
+    <!-- ===== Sponsors Section ===== -->
+    <section class="sponsors" aria-labelledby="sponsors-title">
+      <div class="sponsors__head">
+        <h2 id="sponsors-title" class="section-title">Sponsors & Partners</h2>
+        <p class="section-subtitle">
+          Some logos may appear blurred or as “coming soon” until official reveals.
+        </p>
+      </div>
+
+        <!-- Placeholder tile example (use if you don't have a logo yet) -->
+        <div class="sponsor sponsor--placeholder" role="listitem" aria-label="More sponsors coming soon">
+          <span>More coming soon</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact Section (optional if you used OPTION B above) ===== -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title" class="section-title">Contact</h2>
+      <p class="section-subtitle">
+        For partnerships, booths, or community collaborations:
+      </p>
+
+      <!-- Simple contact actions (no backend needed) -->
+      <div class="actions">
+        <a class="btn btn--primary" href="mailto:ggconph@gmail.com?subject=GGCon%20Partnership%20Inquiry">
+          Email: ggconph@gmail.com
+        </a>
+        <!-- Add social links if you want -->
+        <a class="btn btn--ghost" href="https://facebook.com/ggconph" target="_blank" rel="noopener">
+          Facebook
+        </a>
+        <a class="btn btn--ghost" href="https://instagram.com/ggconph" target="_blank" rel="noopener">
+          Instagram
+        </a>
+		<a class="btn btn--ghost" href="https://x.com/ggconph" target="_blank" rel="noopener">
+          X/Twitter
+        </a>
+		<a class="btn btn--ghost" href="https://tiktok.com/@ggconph" target="_blank" rel="noopener">
+          TikTok
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+      <p class="footer__text">
+        © <span id="year"></span> Good Game Con! • All rights reserved.
+      </p>
+    </footer>
+  </main>
+
+  <!-- ===== Tiny JS just to set the year (optional) ===== -->
+  <script>
+    // Sets footer year automatically
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
