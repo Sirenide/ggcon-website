@@ -638,7 +638,7 @@ button:focus-visible {
   position: relative;
   overflow: hidden;
 
-  background: #ffffff0a;
+  background: #2a2b39;
   backdrop-filter: blur(10px);
 
   transition: 0.35s ease;
@@ -1165,6 +1165,8 @@ button:focus-visible {
   }
 }
 
+/* --- Mobile header layout --- */
+
 @media (max-width: 520px) {
   :root { --pad: 18px; }
 
@@ -1183,7 +1185,6 @@ button:focus-visible {
   }
 }
 
-/* --- Mobile header layout --- */
 .nav-toggle { display: none; }
 .mobile-nav { display: none; }
 
