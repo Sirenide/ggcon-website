@@ -454,19 +454,21 @@
 </script>
 
   <!-- For navbar burger -->
-  <script>
+<script>
   const toggle = document.querySelector('.nav-toggle');
   const menu = document.querySelector('.mobile-nav');
   const closeBtn = document.querySelector('.mobile-nav__close');
 
   function openMenu(){
     menu.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
     toggle.setAttribute('aria-expanded', 'true');
     menu.setAttribute('aria-hidden', 'false');
   }
 
   function closeMenu(){
     menu.classList.remove('is-open');
+    document.body.style.overflow = '';
     toggle.setAttribute('aria-expanded', 'false');
     menu.setAttribute('aria-hidden', 'true');
   }
@@ -477,7 +479,6 @@
     if (e.target === menu) closeMenu();
   });
 
-  // Close on link click
   menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 </script>
 </body>
