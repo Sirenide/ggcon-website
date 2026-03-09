@@ -18,7 +18,8 @@
   <meta property="og:url" content="https://ggconph.com/" />
 
   <!-- ===== CSS (to be created after HTML approval) ===== -->
-  <link rel="stylesheet" href="./styles.css" />
+<link rel="stylesheet" href="./styles.css">
+<link rel="stylesheet" href="./responsive.css">
   <link href="https://fonts.googleapis.com/css2?family=Changa:wght@400;700;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
@@ -218,7 +219,7 @@
     <!-- =========================
       EXPERIENCE SECTION
     ========================== -->
-    <section class="section" id="experience" aria-labelledby="experience-title">
+    <section class="section section--light" id="experience" aria-labelledby="experience-title">
       <div class="section__inner">
         <header class="section__head">
           <h2 id="experience-title" class="section__title">
@@ -336,7 +337,7 @@
     <!-- =========================
       PARTNERS / SPONSORS SECTION
     ========================== -->
-    <section class="section" id="partners" aria-labelledby="partners-title">
+    <section class="section section--light" id="partners" aria-labelledby="partners-title">
       <div class="section__inner">
         <header class="section__head">
           <h2 id="partners-title" class="section__title">THEY MADE IT POSSIBLE<span class="accent">.</span></h2>
@@ -405,7 +406,7 @@
     <!-- =========================
       CONTACT SECTION
     ========================== -->
-    <section class="section" id="contact" aria-labelledby="contact-title">
+    <section class="section section--light" id="contact" aria-labelledby="contact-title">
       <div class="section__inner">
         <header class="section__head">
           <h2 id="contact-title" class="section__title">APPLY<span class="accent">.</span></h2>
@@ -440,17 +441,17 @@
 
 
   <!-- Tiny JS: for navbar scroll -->
-  <script>
-    const topbar = document.querySelector(".topbar");
+<script>
+  const topbar = document.querySelector(".topbar");
 
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > window.innerHeight * 0.7) {
-        topbar.classList.add("topbar--solid");
-      } else {
-        topbar.classList.remove("topbar--solid");
-      }
-    });
-  </script>
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 80) {
+      topbar.classList.add("topbar--solid");
+    } else {
+      topbar.classList.remove("topbar--solid");
+    }
+  });
+</script>
 
   <!-- For navbar burger -->
   <script>
