@@ -807,7 +807,9 @@ button:focus-visible {
   border-bottom: 1px solid var(--faint);
 }
 
-.feature__label { display: flex; }
+.feature__label { 
+  display: flex; 
+}
 
 .tag {
   display: inline-flex;
@@ -837,7 +839,8 @@ button:focus-visible {
   color: var(--muted);
   font-size: 16px;
   line-height: 1.75;
-  max-width: 88ch;
+
+  width: min(88ch, 100%);
 }
 
 .feature__arrow {
