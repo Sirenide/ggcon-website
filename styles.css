@@ -973,11 +973,11 @@ button:focus-visible {
 /* Sponsors container */
 .logos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 28px;
   align-items: center;
   justify-items: center;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 /* Individual sponsor block */
@@ -990,7 +990,7 @@ button:focus-visible {
 }
 
 .logo img {
-  max-height: 140px;  /* much bigger */
+  max-height: 90px;  /* much bigger */
   max-width: 100%;
   width: auto;
   height: auto;
@@ -1012,8 +1012,52 @@ button:focus-visible {
 
 .logo-bg {
   background: #ffffff;
-  padding: 20px 30px;
-  border-radius: 20px;
+  padding: 16px 22px;
+  border-radius: 18px;
+}
+
+
+/* Co-presenter / featured sponsor */
+.logo-featured {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.logo--featured {
+  width: min(900px, 70vw);  /* bigger container */
+}
+
+.logo--featured .logo-bg {
+  padding: 40px 60px;
+  border-radius: 22px;
+}
+
+.logo--featured img {
+  max-height: none;     /* removes previous limit */
+  height: clamp(90px, 8vw, 150px);
+  width: auto;
+}
+
+.logo-featured-label {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  margin-bottom: 16px;
+  opacity: 0.6;
+}
+
+.logo-featured-label::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: #0131ac;
+  margin: 10px auto 0;
 }
 
 /* =========================
