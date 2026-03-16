@@ -109,7 +109,6 @@ body {
 /* Scrolled state */
 .topbar--solid {
   background: #060816f2;
-  backdrop-filter: blur(14px);
   border-bottom: 1px solid #ffffff1a;
   box-shadow: 0 10px 40px #00000088;
 }
@@ -973,7 +972,7 @@ button:focus-visible {
 /* Sponsors container */
 .logos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 28px;
   align-items: center;
   justify-items: center;
@@ -990,7 +989,7 @@ button:focus-visible {
 }
 
 .logo img {
-  max-height: 90px;  /* much bigger */
+  max-height: 180px;  /* much bigger */
   max-width: 100%;
   width: auto;
   height: auto;
@@ -1011,11 +1010,62 @@ button:focus-visible {
 }
 
 .logo-bg {
+  position: relative;
   background: #ffffff;
-  padding: 16px 22px;
+  padding: 20px;
   border-radius: 18px;
+
+  width: 150px;
+  aspect-ratio: 1 / 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #d9e0f0;
+  overflow: hidden;
+  transition: transform 0.35s ease;
 }
 
+/* animated gradient border */
+.logo-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  padding: 1px;
+
+  background: linear-gradient(
+    120deg,
+    #07d9ea,
+    #fed107,
+    #ff3132,
+    #07d9ea
+  );
+
+  background-size: 300% 300%;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.logo-bg:hover::before {
+  opacity: 1;
+  animation: borderFlow 3s linear infinite;
+}
+
+.logo-bg:hover {
+  transform: translateY(-6px);
+}
+
+.logo-bg:hover img {
+  transform: scale(1.05);
+}
 
 /* Co-presenter / featured sponsor */
 .logo-featured {
@@ -1032,14 +1082,15 @@ button:focus-visible {
 }
 
 .logo--featured .logo-bg {
-  padding: 40px 60px;
-  border-radius: 22px;
+  aspect-ratio: auto;     /* remove square constraint */
+  width: auto;
+  padding: 30px 50px;
 }
 
 .logo--featured img {
-  max-height: none;     /* removes previous limit */
-  height: clamp(90px, 8vw, 150px);
+  height: clamp(90px, 8vw, 160px);
   width: auto;
+  max-width: 420px;
 }
 
 .logo-featured-label {
@@ -1276,6 +1327,10 @@ button:focus-visible {
 /* Logos */
 .section--light .logo-bg {
   background: #ffffff;
+}
+
+.logo-bg.logo-bg--dark {
+  background: #000;
 }
 
 /* =========================

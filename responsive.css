@@ -15,6 +15,21 @@
     padding: 14px 18px;
   }
 
+  .topbar {
+    padding: 14px 18px;
+  }
+
+  /* shrink logo */
+  .brand__logo {
+    height: 26px;
+  }
+
+  /* tighten nav spacing slightly */
+  .nav__link {
+    font-size: 12px;
+    padding: 8px 8px;
+  }
+
   .columns,
   .about-grid {
     grid-template-columns: 1fr;
@@ -50,7 +65,9 @@
 @media (max-width: 840px) {
 
   /* Hide desktop navigation */
-  .nav { display: none !important; }
+  .nav { 
+    display: none !important; 
+  }
 
   /* Hide header CTAs on mobile */
   .topbar .btn--primary,
@@ -166,6 +183,24 @@
   .mobile-nav.is-open .mobile-nav__panel {
     transform: translateX(0);
   }
+
+  /* Feature */
+  .feature {
+    text-align: center;
+  }
+
+  .feature__label {
+    justify-content: center;
+  }
+
+  .feature__body {
+    grid-template-columns: 1fr;
+  }
+
+  .feature__arrow {
+    display: none;
+  }
+  
 }
 
 
@@ -174,15 +209,22 @@
 ========================= */
 @media (max-width: 520px) {
 
-  :root { --pad: 18px; }
+  :root { 
+    --pad: 18px; 
+  }
 
-  .brand__text { display: none; }
+  .brand__text { 
+    display: none; 
+  }
 
-  .hero__lead { font-size: 16px; }
+  .hero__lead { 
+    font-size: 16px; 
+  }
 
   .tiles {
     grid-template-columns: 1fr;
   }
+  
 }
 
 
