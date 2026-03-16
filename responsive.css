@@ -200,6 +200,23 @@
   .feature__arrow {
     display: none;
   }
+
+  .logo--featured {
+    width: 100%;
+  }
+
+  .logo--featured .logo-bg {
+    width: min(88vw, 520px);
+    padding: 20px 24px;
+    border-radius: 20px;
+  }
+
+  .logo--featured img {
+    width: 100%;
+    height: auto;
+    max-width: none;
+    max-height: 72px;
+  }
   
 }
 
