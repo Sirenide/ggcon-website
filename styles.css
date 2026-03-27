@@ -301,6 +301,18 @@ button:focus-visible {
   border-radius: 999px;
 }
 
+/* Topbar CTA uses display font */
+.topbar .btn--primary {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(16px, 1.2vw, 18px);
+  letter-spacing: 0.04em;
+}
+
+.topbar .btn {
+  text-decoration: none;
+}
+
 /* ========================================
    FULL-WIDTH TICKETS STRIPE BUTTON
 ======================================== */
@@ -431,8 +443,6 @@ button:focus-visible {
   position: relative;
   z-index: 5;
 }
-
-
 
 /* 5) ABOUT section: clean navy block */
 #about.section {
@@ -1111,6 +1121,50 @@ button:focus-visible {
   margin: 10px auto 0;
 }
 
+.partner-block {
+  margin-top: 36px;
+}
+
+.partner-block:first-of-type {
+  margin-top: 40px;
+}
+
+.partner-block__title {
+  margin-bottom: 14px;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+/* Compact grid for Media / Community / F&B partners only */
+.logos--compact {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 220px));
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Slightly smaller cards for the compact partner groups */
+.logos--compact .logo {
+  min-height: auto;
+  padding: 0;
+}
+
+.logos--compact .logo-bg {
+  width: 180px;
+  height: 120px;
+  aspect-ratio: auto;
+  padding: 16px 18px;
+  border-radius: 16px;
+}
+
+.logos--compact .logo img {
+  max-height: 70px;
+  max-width: 100%;
+}
+
 /* =========================
   12) SOCIAL LINKS GRID
 ========================= */
@@ -1229,7 +1283,8 @@ button:focus-visible {
 ========================= */
 
 #experience.section--light { background: #f6f0e4; }
-#partners.section--light { background: #eef2ff; }
+#sponsors.section--light { background: #eef2ff; }
+#partners.section--light { background: #f6f0e4; }
 #contact.section--light { background: #f6f0e4; }
 
 .section--light {
@@ -1332,6 +1387,7 @@ button:focus-visible {
 .logo-bg.logo-bg--dark {
   background: #000;
 }
+
 
 /* =========================
   14) FOOTER
